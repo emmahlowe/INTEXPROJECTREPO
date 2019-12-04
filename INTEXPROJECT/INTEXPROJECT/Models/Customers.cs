@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace INTEXPROJECT.Models
 {
-    //[Table("Customers")]
+    [Table("Customers")]
     public class Customers
     {
         [Key]
