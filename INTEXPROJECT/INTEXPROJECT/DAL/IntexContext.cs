@@ -19,10 +19,6 @@ namespace INTEXPROJECT.DAL
         public DbSet<Compounds> Compound { get; set; }
         public DbSet<Assays> Assay { get; set; }
 
-
-
-
-
-
+        public System.Data.Entity.DbSet<INTEXPROJECT.Models.DisplayOrder> DisplayOrders { get; set; }
     }
 }
