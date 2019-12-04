@@ -7,7 +7,7 @@ using System.Web;
 
 namespace INTEXPROJECT.Models
 {
-    //[Table("WorkOrders")]
+    [Table("WorkOrders")]
     public class WorkOrders
     {
         [Key]
