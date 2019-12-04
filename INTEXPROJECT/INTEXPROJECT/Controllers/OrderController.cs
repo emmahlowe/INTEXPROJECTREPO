@@ -37,6 +37,9 @@ namespace INTEXPROJECT.Controllers
         // GET: Order
         public ActionResult Index()
         {
+            ViewBag.Compounds = lstCompounds;
+            ViewBag.Assays = lstAssays;
+            ViewBag.Priorities = lstPriorities;
             return View();
         }
 
@@ -49,7 +52,7 @@ namespace INTEXPROJECT.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(DisplayOrder myModel)
+        public ActionResult Create(string txtName)
         {
             //get number of assays per compound
             //get number of compounds
@@ -58,11 +61,21 @@ namespace INTEXPROJECT.Controllers
             //create work order record
             //create compound record(s)
             //create assay record(s)
-
+            ViewBag.Compounds = lstCompounds;
+            ViewBag.Assays = lstAssays;
+            ViewBag.Priorities = lstPriorities;
             return View();
         }
 
         public ActionResult AddAssay()
+        {
+            ViewBag.Compounds = lstCompounds;
+            ViewBag.Assays = lstAssays;
+            ViewBag.Priorities = lstPriorities;
+            return View("Create");
+        }
+        [HttpPost]
+        public ActionResult AddAssay(string txtName)
         {
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;

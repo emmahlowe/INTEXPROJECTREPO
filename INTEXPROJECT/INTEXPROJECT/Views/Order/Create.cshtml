@@ -1,5 +1,4 @@
 ﻿@model INTEXPROJECT.Models.DisplayOrder
-
 @{
     ViewBag.Title = "New Order";
 }
@@ -13,31 +12,8 @@
 <div class="form-horizontal">
 
     <hr />
-    @Html.ValidationSummary(true)
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.Customer_ID, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Customer_ID)
-            @Html.ValidationMessageFor(model => model.Customer_ID)
-        </div>
-    </div>
 
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.Status_ID, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Status_ID)
-            @Html.ValidationMessageFor(model => model.Status_ID)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.Order_Date, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Order_Date)
-            @Html.ValidationMessageFor(model => model.Order_Date)
-        </div>
-    </div>
-
+    @*Order Priority Drop Down*@
     <div class="form-group">
         @Html.LabelFor(model => model.Priority_ID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -46,48 +22,51 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @*@Html.LabelFor(model => model.Sequence_Code, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Sequence_Code)
-            @Html.ValidationMessageFor(model => model.Sequence_Code)
-        </div>
-    </div>
-    <h5>Compound 1</h5>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Compound_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Compound_ID, new SelectList(ViewBag.Compounds, "Compound_ID", "Name"))
-            @Html.ValidationMessageFor(model => model.Compound_ID)
-        </div>
-    </div>
+    @*Form data*@
+    <form method="POST" action="AddAssay">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Client_Weight, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Client_Weight)
-            @Html.ValidationMessageFor(model => model.Client_Weight)
-        </div>
-    </div>
+        <label for="txtName">Compound</label>
+        @*@Html.DropDownList("test", new SelectList(ViewBag.Compounds, "Compound_ID", "Name"))*@
+        
+        @Html.TextBox("txtName", null, new { @class = "form-control" })
+        <input type="submit" value="Submit" />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Assay_Desc_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Assay_Desc_ID, new SelectList(ViewBag.Assays, "Assay_Description_ID", "Description"))
-            @Html.ValidationMessageFor(model => model.Assay_Desc_ID)
-        </div>
-    </div>
+    </form>
+< h5 > Compound 1 </ h5 >
+< div class="form-group">
+@Html.LabelFor(model => model.Compound_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+<div class="col-md-10">
+@Html.DropDownListFor(model => model.Compound_ID, new SelectList(ViewBag.Compounds, "Compound_ID", "Name"))
+@Html.ValidationMessageFor(model => model.Compound_ID)
+</div>
+</div>
 
-    @Html.ActionLink("Add another assay to this compound", "AddAssay", new { @class = "col-md-10" } )
+<div class="form-group">
+@Html.LabelFor(model => model.Client_Weight, htmlAttributes: new { @class = "control-label col-md-2" })
+<div class="col-md-10">
+@Html.EditorFor(model => model.Client_Weight)
+@Html.ValidationMessageFor(model => model.Client_Weight)
+</div>
+</div>
 
-    @*<input type="button" value="Add assay on this compound" class="col-md-3" />*@
+<div class="form-group">
+@Html.LabelFor(model => model.Assay_Desc_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+<div class="col-md-10">
+@Html.DropDownListFor(model => model.Assay_Desc_ID, new SelectList(ViewBag.Assays, "Assay_Description_ID", "Description"))
+@Html.ValidationMessageFor(model => model.Assay_Desc_ID)
+</div>
+</div>
+
+@Html.ActionLink("Add another assay to this compound", "AddAssay", new { @class = "col-md-10" } )
+
+@*<input type="button" value="Add assay on this compound" class="col-md-3" />*@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Place Order" class="btn btn-default" />
         </div>
     </div>
-</div>
+
 }
 
 <div>
