@@ -99,7 +99,7 @@ namespace INTEXPROJECT.Controllers
             numCompounds += 1;
             for (int iCount = 0; iCount < numCompounds; iCount++)
             {
-                ViewBag.addCompound += "<h5> Compound " + (iCount + 2) + " </h5> " +
+                ViewBag.addCompound += "<div class='jumbotron'> <h5> Compound " + (iCount + 2) + " </h5> " +
             "<label for= 'compName" + (iCount + 2) + "'>Compound Name</label> " +
             "<select name='compName" + (iCount + 2) + "' > " +
                 "<option value='1'>Serotonin</option> " +
@@ -135,8 +135,10 @@ namespace INTEXPROJECT.Controllers
                 "<option>ProfilingScreen</option> " +
                 "<option>PharmaScreen</option> " +
                 "<option>CustomScreen</option> " +
-            "  </select> <br />";
+            "  </select> <br /> ";
                 }
+
+                ViewBag.addCompound += " </div>";
             }
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
