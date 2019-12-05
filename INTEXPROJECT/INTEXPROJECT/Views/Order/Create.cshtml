@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "New Order";
+}
+
+<h2>New Order</h2>
+
+
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @*Form data*@
+    <form method="POST" action="getOrderQuote">
+        @*Order Priority Drop Down*@
+        
+            <label>Order Priority</label>
+       
+                <select id="priority" name="priority">
+                    <option value="1">Standard (7 to 10 weeks) - $0.00</option>
+                    <option value="2">Priority (5 to 7 weeks) - $500.00</option>
+                    <option value="3">Rushed (3 weeks to 5 weeks) - $1000.00</option>
+                </select>
+           
+
+
+        <h5> Compound 1 </h5>
+        <label for="compName1">Compound Name</label>
+        <select name='compName1' >
+            <option value='1'>Serotonin</option>
+            <option value='2'>Atropine</option>
+            <option value='3'>Tyrosine</option>
+            <option value='4'>Quinine</option>
+            <option value='5'>Phenobarbital</option>
+        </select><br />
+
+        <label for="compWeight1">Compound Weight in ML</label>
+        <input name="compWeight1" type="text" />
+        <br />
+
+        <label for='assayTest1_1'>Assay Test 1 </label>
+        <select name="assayTest1_1">
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        <label for='assayTest1_2'>Assay Test 2 </label>
+        <select name="assayTest1_2">
+            <option>No additional tests needed</option>
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        <label for='assayTest1_3'>Assay Test 3 </label>
+        <select name="assayTest1_3">
+            <option>No additional tests needed</option>
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        <label for='assayTest1_4'>Assay Test 4 </label>
+        <select name="assayTest1_4">
+            <option>No additional tests needed</option>
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        <label for='assayTest1_5'>Assay Test 5 </label>
+        <select name="assayTest1_5">
+            <option>No additional tests needed</option>
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        <label for='assayTest1_6'>Assay Test 6 </label>
+        <select name="assayTest1_6">
+            <option>No additional tests needed</option>
+            <option>Biochemical Pharmacology</option>
+            <option>DiscoveryScreen</option>
+            <option>ImmunoScreen</option>
+            <option>ProfilingScreen</option>
+            <option>PharmaScreen</option>
+            <option>CustomScreen</option>
+        </select> <br />
+
+        @Html.Raw(ViewBag.addCompound)<br />
+        @Html.ActionLink("Add another compound to this order", "AddCompound", new { @class = "col-md-10" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+               
+                <input type="submit" value="Get Order Quote" class="btn btn-default" />
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -23,8 +23,6 @@ namespace INTEXPROJECT.Models
 
         public DateTime Order_Date { get; set; }
 
-        public DateTime Due_Date { get; set; }
-
         public string Num_Data_Report { get; set; }
 
         public string Summary_Report { get; set; }
