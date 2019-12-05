@@ -62,7 +62,12 @@ namespace INTEXPROJECT.Controllers
         //    return View();
         //}
         public static int numCompounds = 0;
+        
+        public ActionResult thankYou()
+        {
 
+            return View();
+        }
         public ActionResult AddAssay()
         {
 

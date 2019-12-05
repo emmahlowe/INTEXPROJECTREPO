@@ -265,6 +265,12 @@
   <ItemGroup>
     <Content Include="Views\Order\Quote.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\thankYou.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Employee\Mangement.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
