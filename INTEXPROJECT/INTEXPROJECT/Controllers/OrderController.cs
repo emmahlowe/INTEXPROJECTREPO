@@ -52,21 +52,15 @@ namespace INTEXPROJECT.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Create(string compName1, string compWeight1, string assayTest1)
-        {
-            //get number of assays per compound
-            //get number of compounds
-            //get what compounds and what assays are needed
+        //[HttpPost]
+        //public ActionResult Create(string compName1, string compWeight1, string assayTest1)
+        //{
 
-            //create work order record
-            //create compound record(s)
-            //create assay record(s)
-            ViewBag.Compounds = lstCompounds;
-            ViewBag.Assays = lstAssays;
-            ViewBag.Priorities = lstPriorities;
-            return View();
-        }
+        //    ViewBag.Compounds = lstCompounds;
+        //    ViewBag.Assays = lstAssays;
+        //    ViewBag.Priorities = lstPriorities;
+        //    return View();
+        //}
         public static int numCompounds = 0;
 
         public ActionResult AddAssay()
@@ -85,40 +79,40 @@ namespace INTEXPROJECT.Controllers
             {
                 ViewBag.addCompound += "<h5> Compound " + (iCount + 2) + " </h5> " +
             "<label for= 'compName" + (iCount + 2) + "'>Compound Name</label> " +
-            "<select name='compName" + (iCount + 2) + " > " +
-                "<option value='0'>Serotonin</option> " +
-                "<option value='1'>Atropine</option> " +
-                "<option value='2'>Tyrosine</option> " +
-                "<option value='3'>Quinine</option> " +
-                 "<option value='4'>Phenobarbital</option> " +
+            "<select name='compName" + (iCount + 2) + "' > " +
+                "<option value='1'>Serotonin</option> " +
+                "<option value='2'>Atropine</option> " +
+                "<option value='3'>Tyrosine</option> " +
+                "<option value='4'>Quinine</option> " +
+                 "<option value='5'>Phenobarbital</option> " +
             "  </select> " +
 
             "<br />" +
 
-             "<label for= 'compWeight" + (iCount + 2) + "'>Compound Weight</label> " +
+             "<label for= 'compWeight" + (iCount + 2) + "'>Compound Weight in ML</label> " +
              "<input type='text' name='compWeight" + (iCount + 2) + "' /> " +
              "<br />" +
-              "<label for= 'assayTest" + (iCount + 2) + ".2" + "'>Assay Test 1 </label> " +
-            "<select name='assayTest" + (iCount + 2) + ".2" + "'> " +
-                "<option value='2'>Biochemical Pharmacology</option> " +
-                "<option value='3'>DiscoveryScreen</option> " +
-                "<option value='4'>ImmunoScreen</option> " +
-                "<option value='5'>ProfilingScreen</option> " +
-                "<option value='6'>PharmaScreen</option> " +
-                "<option value='7'>CustomScreen</option> " +
+              "<label for= 'assayTest" + (iCount + 2) + "_1" + "'>Assay Test 1 </label> " +
+            "<select name='assayTest" + (iCount + 2) + "_1" + "'> " +
+                "<option>Biochemical Pharmacology</option> " +
+                "<option>DiscoveryScreen</option> " +
+                "<option>ImmunoScreen</option> " +
+                "<option>ProfilingScreen</option> " +
+                "<option>PharmaScreen</option> " +
+                "<option>CustomScreen</option> " +
             "  </select> <br />";
 
                 for (int inCount = 3; inCount < 8; inCount++)
                 {
-                    ViewBag.addCompound += "<label for= 'assayTest" + (iCount + 2) + "." + inCount + "'>Assay Test" + (inCount - 1) + " </label> " +
-            "<select name='assayTest" + (iCount + 2) + "." + inCount + "'> " +
-                "<option value='1'>No additional tests</option> " +
-                "<option value='2'>Biochemical Pharmacology</option> " +
-                "<option value='3'>DiscoveryScreen</option> " +
-                "<option value='4'>ImmunoScreen</option> " +
-                "<option value='5'>ProfilingScreen</option> " +
-                "<option value='6'>PharmaScreen</option> " +
-                "<option value='7'>CustomScreen</option> " +
+                    ViewBag.addCompound += "<label for= 'assayTest" + (iCount + 2) + "_" + (inCount - 1) + "'>Assay Test " + (inCount - 1) + " </label> " +
+            "<select name='assayTest" + (iCount + 2) + "_" + (inCount - 1) + "'> " +
+                "<option>No additional tests</option> " +
+                "<option>Biochemical Pharmacology</option> " +
+                "<option>DiscoveryScreen</option> " +
+                "<option>ImmunoScreen</option> " +
+                "<option>ProfilingScreen</option> " +
+                "<option>PharmaScreen</option> " +
+                "<option>CustomScreen</option> " +
             "  </select> <br />";
                 }
             }
@@ -129,9 +123,254 @@ namespace INTEXPROJECT.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddAssay(string compName1, string compWeight1, string assayTest1, string compName2, string compWeight2, string assayTest2, string compName3, string compWeight3, string assayTest3, string compName4, string compWeight4, string assayTest4, string compName5, string compWeight5, string assayTest5)
+        public ActionResult getOrderQuote(string priority, string compName1, decimal compWeight1, string compName2, string compWeight2, string compName3, string compWeight3, string compName4, string compWeight4, string compName5, string compWeight5, string assayTest1_1, string assayTest1_2, string assayTest1_3, string assayTest1_4, string assayTest1_5, string assayTest1_6, string assayTest2_1, string assayTest2_2, string assayTest2_3, string assayTest2_4, string assayTest2_5, string assayTest2_6, string assayTest3_1, string assayTest3_2, string assayTest3_3, string assayTest3_4, string assayTest3_5, string assayTest3_6, string assayTest4_1, string assayTest4_2, string assayTest4_3, string assayTest4_4, string assayTest4_5, string assayTest4_6, string assayTest5_1, string assayTest5_2, string assayTest5_3, string assayTest5_4, string assayTest5_5, string assayTest5_6)
         {
-            
+            //calculate quote
+            //create work order object
+            //create assay objects
+            //create compound objects
+
+            //get number of assays per compound
+            //get number of compounds
+            //get what compounds and what assays are needed
+
+            //create work order record
+            //create compound record(s)
+            //create assay record(s)
+            decimal OrderQuote;
+            //adds priority on
+            if(priority == "1")
+            {
+                OrderQuote = 0m;
+            }
+            else if(priority == "2")
+            {
+                OrderQuote = 500m;
+            }
+            else
+            {
+                OrderQuote = 1000m;
+            }
+
+            //adds comp1 assaytest1 cost on
+            if (assayTest1_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest2 cost on
+            if (assayTest1_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+           else if (assayTest1_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest3 cost on
+            if (assayTest1_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest4 cost on
+            if (assayTest1_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest5 cost on
+            if (assayTest1_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest6 cost on
+            if (assayTest1_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //----COMPOUND 2 ----------------------------
+
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
