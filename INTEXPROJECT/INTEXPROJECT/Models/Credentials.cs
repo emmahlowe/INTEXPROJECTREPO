@@ -17,6 +17,7 @@ namespace INTEXPROJECT.Models
 
         [Required(ErrorMessage = "Please enter your password")]
         [StringLength(35, MinimumLength = 12, ErrorMessage = "Password must be between 12-35 characters")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
