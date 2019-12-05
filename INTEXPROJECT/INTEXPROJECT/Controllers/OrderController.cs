@@ -143,6 +143,7 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
+            numCompounds = 0;
             return View("Create");
         }
 
