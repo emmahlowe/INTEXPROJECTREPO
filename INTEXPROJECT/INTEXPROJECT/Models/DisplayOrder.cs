@@ -21,6 +21,9 @@ namespace INTEXPROJECT.Models
         [HiddenInput(DisplayValue = false)]
         public DateTime Order_Date { get; set; }
 
+        [Display(Name = "Due Date")]
+        public DateTime Due_Date { get; set; }
+
         [HiddenInput(DisplayValue = false)]
         public int Sequence_Code { get; set; }
 
@@ -32,9 +35,6 @@ namespace INTEXPROJECT.Models
 
         [Display(Name = "Compound Weight")]
         public int Client_Weight { get; set; }
-
-        [Display(Name = "Priority")]
-        public int Priority_ID { get; set; }
 
     }
 }
