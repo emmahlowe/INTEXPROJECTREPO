@@ -35,8 +35,8 @@
         <label for="assayTest1">Assay Test</label>
         <input name="assayTest1" value="text" /><br />
 
-        @Html.Raw(ViewBag.addAssay)<br />
-        @Html.ActionLink("Add another assay to this compound", "AddAssay", new { @class = "col-md-10" })
+        @Html.Raw(ViewBag.addCompound)<br />
+        @Html.ActionLink("Add another compound to this order", "AddCompound", new { @class = "col-md-10" })
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Place Order" class="btn btn-default" />
