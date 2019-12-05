@@ -39,5 +39,10 @@ namespace INTEXPROJECT.Controllers
         {
             return View();
         }
+
+        public ActionResult OrderHistory()
+        {
+            return View();
+        }
     }
 }

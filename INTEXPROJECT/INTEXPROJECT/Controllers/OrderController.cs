@@ -43,6 +43,15 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Priorities = lstPriorities;
             return View();
         }
+        public ActionResult OrderProcessing()
+        {
+            return View();
+        }
+
+        public ActionResult OrderTesting()
+        {
+            return View();
+        }
 
         public ActionResult Create()
         {
@@ -50,6 +59,14 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
             return View();
+        }
+
+        public ActionResult GetQuote()
+        {
+            ViewBag.Compounds = lstCompounds;
+            ViewBag.Assays = lstAssays;
+            ViewBag.Priorities = lstPriorities;
+            return View("CreateQuote");
         }
 
         //[HttpPost]
@@ -62,7 +79,7 @@ namespace INTEXPROJECT.Controllers
         //    return View();
         //}
         public static int numCompounds = 0;
-        
+
         public ActionResult thankYou()
         {
 
@@ -128,7 +145,7 @@ namespace INTEXPROJECT.Controllers
         }
 
         [HttpPost]
-        public ActionResult getOrderQuote(string priority, string compName1, decimal compWeight1, string compName2, string compName3, string compName4, string compName5, string assayTest1_1, string assayTest1_2, string assayTest1_3, string assayTest1_4, string assayTest1_5, string assayTest1_6, string assayTest2_1, string assayTest2_2, string assayTest2_3, string assayTest2_4, string assayTest2_5, string assayTest2_6, string assayTest3_1, string assayTest3_2, string assayTest3_3, string assayTest3_4, string assayTest3_5, string assayTest3_6, string assayTest4_1, string assayTest4_2, string assayTest4_3, string assayTest4_4, string assayTest4_5, string assayTest4_6, string assayTest5_1, string assayTest5_2, string assayTest5_3, string assayTest5_4, string assayTest5_5, string assayTest5_6, decimal compWeight2 = 0, decimal compWeight3 = 0, decimal compWeight4 = 0, decimal compWeight5 = 0)
+        public ActionResult getQuote(string priority, string compName1, decimal compWeight1, string compName2, string compName3, string compName4, string compName5, string assayTest1_1, string assayTest1_2, string assayTest1_3, string assayTest1_4, string assayTest1_5, string assayTest1_6, string assayTest2_1, string assayTest2_2, string assayTest2_3, string assayTest2_4, string assayTest2_5, string assayTest2_6, string assayTest3_1, string assayTest3_2, string assayTest3_3, string assayTest3_4, string assayTest3_5, string assayTest3_6, string assayTest4_1, string assayTest4_2, string assayTest4_3, string assayTest4_4, string assayTest4_5, string assayTest4_6, string assayTest5_1, string assayTest5_2, string assayTest5_3, string assayTest5_4, string assayTest5_5, string assayTest5_6, decimal compWeight2 = 0, decimal compWeight3 = 0, decimal compWeight4 = 0, decimal compWeight5 = 0)
         {
             //calculate quote
             //create work order object
@@ -144,11 +161,11 @@ namespace INTEXPROJECT.Controllers
             //create assay record(s)
             decimal OrderQuote;
             //adds priority on
-            if(priority == "1")
+            if (priority == "1")
             {
                 OrderQuote = 0m;
             }
-            else if(priority == "2")
+            else if (priority == "2")
             {
                 OrderQuote = 500m;
             }
@@ -200,7 +217,7 @@ namespace INTEXPROJECT.Controllers
                 OrderQuote = Decimal.Add(OrderQuote, 33.7m);
                 OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
             }
-           else if (assayTest1_2 == "DiscoveryScreen")
+            else if (assayTest1_2 == "DiscoveryScreen")
             {
                 OrderQuote = Decimal.Add(OrderQuote, 27.20m);
                 OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
@@ -1277,7 +1294,1161 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
-            return PartialView("Quote"); //test
+            return PartialView("getQuote"); //test
         }
+
+        [HttpPost]
+        public ActionResult getOrderQuote(string priority, string compName1, decimal compWeight1, string compName2, string compName3, string compName4, string compName5, string assayTest1_1, string assayTest1_2, string assayTest1_3, string assayTest1_4, string assayTest1_5, string assayTest1_6, string assayTest2_1, string assayTest2_2, string assayTest2_3, string assayTest2_4, string assayTest2_5, string assayTest2_6, string assayTest3_1, string assayTest3_2, string assayTest3_3, string assayTest3_4, string assayTest3_5, string assayTest3_6, string assayTest4_1, string assayTest4_2, string assayTest4_3, string assayTest4_4, string assayTest4_5, string assayTest4_6, string assayTest5_1, string assayTest5_2, string assayTest5_3, string assayTest5_4, string assayTest5_5, string assayTest5_6, decimal compWeight2 = 0, decimal compWeight3 = 0, decimal compWeight4 = 0, decimal compWeight5 = 0)
+        {
+            //calculate quote
+            //create work order object
+            //create assay objects
+            //create compound objects
+
+            //get number of assays per compound
+            //get number of compounds
+            //get what compounds and what assays are needed
+
+            //create work order record
+            //create compound record(s)
+            //create assay record(s)
+            decimal OrderQuote;
+            //adds priority on
+            if (priority == "1")
+            {
+                OrderQuote = 0m;
+            }
+            else if (priority == "2")
+            {
+                OrderQuote = 500m;
+            }
+            else
+            {
+                OrderQuote = 1000m;
+            }
+
+            //adds comp1 assaytest1 cost on
+            if (assayTest1_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest2 cost on
+            if (assayTest1_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest3 cost on
+            if (assayTest1_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest4 cost on
+            if (assayTest1_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest5 cost on
+            if (assayTest1_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //---------------------adds comp1 assaytest6 cost on
+            if (assayTest1_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight1));
+            }
+            else if (assayTest1_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight1));
+            }
+
+            else if (assayTest1_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight1));
+            }
+
+            //-------------COMPOUND 2---------------------
+            //
+            //
+            //
+            //
+            //
+            //-------------COMPOUND 2---------------------
+
+            //adds comp2 assaytest2 cost on
+            if (assayTest2_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+
+            else if (assayTest2_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //---------------------adds comp2 assaytest2 cost on
+            if (assayTest2_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+            else if (assayTest2_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //---------------------adds comp2 assaytest3 cost on
+            if (assayTest2_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+            else if (assayTest2_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //---------------------adds comp2 assaytest4 cost on
+            if (assayTest2_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+            else if (assayTest2_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //---------------------adds comp2 assaytest5 cost on
+            if (assayTest2_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+            else if (assayTest2_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //---------------------adds comp2 assaytest6 cost on
+            if (assayTest2_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight2));
+            }
+            else if (assayTest2_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight2));
+            }
+
+            else if (assayTest2_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight2));
+            }
+
+            else if (assayTest2_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight2));
+            }
+
+            else if (assayTest2_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight2));
+            }
+
+            //-------------COMPOUND 3---------------------
+            //
+            //
+            //
+            //
+            //
+            //-------------COMPOUND 3---------------------
+
+            //adds comp3 assaytest2 cost on
+            if (assayTest3_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+
+            else if (assayTest3_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+
+            //---------------------adds comp3 assaytest2 cost on
+            if (assayTest3_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+            else if (assayTest3_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+
+            //---------------------adds comp3 assaytest3 cost on
+            if (assayTest3_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+            else if (assayTest3_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+
+            //---------------------adds comp3 assaytest4 cost on
+            if (assayTest3_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+            else if (assayTest3_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+
+            //---------------------adds comp3 assaytest5 cost on
+            if (assayTest3_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+            else if (assayTest3_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+
+            //---------------------adds comp3 assaytest6 cost on
+            if (assayTest3_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight3));
+            }
+            else if (assayTest3_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight3));
+            }
+
+            else if (assayTest3_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight3));
+            }
+
+            else if (assayTest3_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight3));
+            }
+
+            else if (assayTest3_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight3));
+            }
+            //-------------COMPOUND 4---------------------
+            //
+            //
+            //
+            //
+            //
+            //-------------COMPOUND 4---------------------
+
+            //adds comp4 assaytest2 cost on
+            if (assayTest4_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+
+            else if (assayTest4_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //---------------------adds comp3 assaytest2 cost on
+            if (assayTest4_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+            else if (assayTest4_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //---------------------adds comp4 assaytest3 cost on
+            if (assayTest4_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+            else if (assayTest4_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //---------------------adds comp4 assaytest4 cost on
+            if (assayTest4_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+            else if (assayTest4_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //---------------------adds comp4 assaytest5 cost on
+            if (assayTest4_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+            else if (assayTest4_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //---------------------adds comp3 assaytest6 cost on
+            if (assayTest4_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight4));
+            }
+            else if (assayTest4_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight4));
+            }
+
+            else if (assayTest4_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight4));
+            }
+
+            else if (assayTest4_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight4));
+            }
+
+            else if (assayTest4_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight4));
+            }
+
+            //-------------COMPOUND 5---------------------
+            //
+            //
+            //
+            //
+            //
+            //-------------COMPOUND 5---------------------
+
+            //adds comp5 assaytest2 cost on
+            if (assayTest5_1 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+
+            else if (assayTest5_1 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_1 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_1 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_1 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_1 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            //---------------------adds comp5 assaytest2 cost on
+            if (assayTest5_2 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+            else if (assayTest5_2 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_2 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_2 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_2 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_2 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            //---------------------adds comp5 assaytest3 cost on
+            if (assayTest5_3 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+            else if (assayTest5_3 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_3 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_3 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_3 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_3 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            //---------------------adds comp5 assaytest4 cost on
+            if (assayTest5_4 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+            else if (assayTest5_4 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_4 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_4 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_4 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_4 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            //---------------------adds comp5 assaytest5 cost on
+            if (assayTest5_5 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+            else if (assayTest5_5 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_5 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_5 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_5 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_5 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            //---------------------adds comp5 assaytest6 cost on
+            if (assayTest5_6 == "Biochemical Pharmacology")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 33.7m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.5m * compWeight5));
+            }
+            else if (assayTest5_6 == "DiscoveryScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.20m);
+                OrderQuote = Decimal.Add(OrderQuote, (5.20m * compWeight5));
+            }
+
+            else if (assayTest5_6 == "ImmunoScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 27.90m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.30m * compWeight5));
+            }
+
+            else if (assayTest5_6 == "ProfilingScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 22.10m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_6 == "PharmaScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 19.80m);
+                OrderQuote = Decimal.Add(OrderQuote, (7.10m * compWeight5));
+            }
+
+            else if (assayTest5_6 == "CustomScreen")
+            {
+                OrderQuote = Decimal.Add(OrderQuote, 37.50m);
+                OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
+            }
+
+            ViewBag.Quote = Math.Round(OrderQuote, 2);
+            ViewBag.Compounds = lstCompounds;
+            ViewBag.Assays = lstAssays;
+            ViewBag.Priorities = lstPriorities;
+            return View("Quote"); //test
+        }
+    
     }
 }

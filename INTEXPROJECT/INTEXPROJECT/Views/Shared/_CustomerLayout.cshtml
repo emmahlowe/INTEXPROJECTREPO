@@ -47,10 +47,10 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">Build Order</a></li>
-                    <li><a href="#">Place </a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Export</a></li>
+                    <li id="1" onclick="activate1()" onmouseover="activate1()" onmouseout="deactivate()" class="active">@Html.ActionLink("Get Quote", "GetQuote", "Order", null, null)</li>
+                    <li id="2" onclick="activate2()" onmouseover="activate2()" onmouseout="deactivate()">@Html.ActionLink("Place Order", "Create", "Order", null, null)</li>
+                    <li id="3" onclick="activate3()" onmouseover="activate3()" onmouseout="deactivate()">@Html.ActionLink("Order History", "OrderHistory", "Home", null, null)</li>
+                    
                 </ul>
                 @*<ul class="nav nav-sidebar">
                         <li><a href="">Nav item</a></li>
@@ -68,7 +68,50 @@
             @RenderBody()
         </div>
     </div>
+    <script>
+        function activate1() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
 
+            document.getElementById(1).classList.add('active');
+        }
+        function deactivate() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
+
+        }
+        function activate2() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
+
+            document.getElementById("2").classList.add('active');
+        }
+        function activate3() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
+
+            document.getElementById("3").classList.add('active');
+        }
+        function activate4() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
+
+            document.getElementById("4").classList.add('active');
+        }
+        function activate5() {
+            for (var iCount = 1; iCount < 6; iCount++) {
+                document.getElementById(iCount).classList.remove('active');
+            }
+
+            document.getElementById("5").classList.add('active');
+        }
+
+    </script>
     <!-- Footer -->
     <div style="width: 100%; height: 50px;"></div>
     <div class="container-fluid floatFooter">

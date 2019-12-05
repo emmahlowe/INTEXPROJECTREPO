@@ -53,10 +53,12 @@ namespace INTEXPROJECT.Controllers
             {
                 db.Customers.Add(customers);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                return View("ThankYou");
             }
 
             return View(customers);
+            //return View("ThankYou");
         }
 
         // GET: Customer/Edit/5
