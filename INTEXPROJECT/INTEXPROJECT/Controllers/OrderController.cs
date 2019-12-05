@@ -1272,7 +1272,7 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
-            return PartialView("Quote");
+            return PartialView("Quote"); //test
         }
     }
 }
