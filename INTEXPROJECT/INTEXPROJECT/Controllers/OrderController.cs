@@ -97,22 +97,30 @@ namespace INTEXPROJECT.Controllers
 
              "<label for= 'compWeight" + (iCount + 2) + "'>Compound Weight</label> " +
              "<input type='text' name='compWeight" + (iCount + 2) + "' /> " +
-             "<br />";
+             "<br />" +
+              "<label for= 'assayTest" + (iCount + 2) + ".2" + "'>Assay Test 1 </label> " +
+            "<select name='assayTest" + (iCount + 2) + ".2" + "'> " +
+                "<option value='2'>Biochemical Pharmacology</option> " +
+                "<option value='3'>DiscoveryScreen</option> " +
+                "<option value='4'>ImmunoScreen</option> " +
+                "<option value='5'>ProfilingScreen</option> " +
+                "<option value='6'>PharmaScreen</option> " +
+                "<option value='7'>CustomScreen</option> " +
+            "  </select> <br />";
 
-             for (int inCount = 1; inCount < 6; inCount++)
+                for (int inCount = 3; inCount < 8; inCount++)
                 {
-                    ViewBag.addCompound += "<label for= 'assayTest" + (iCount + 2) + "." + inCount + "'>Assay Test</label> " +
-            "<select name='assayTest" + (iCount + 2) + "." + inCount + " > " +
-                "<option value='0'>No test</option> " +
-                "<option value='1'>Biochemical Pharmacology</option> " +
-                "<option value='2'>DiscoveryScreen</option> " +
-                "<option value='3'>ImmunoScreen</option> " +
-                "<option value='4'>ProfilingScreen</option> " +
-                "<option value='4'>PharmaScreen</option> " +
-                "<option value='4'>CustomScreen</option> " +
+                    ViewBag.addCompound += "<label for= 'assayTest" + (iCount + 2) + "." + inCount + "'>Assay Test" + (inCount - 1) + " </label> " +
+            "<select name='assayTest" + (iCount + 2) + "." + inCount + "'> " +
+                "<option value='1'>No additional tests</option> " +
+                "<option value='2'>Biochemical Pharmacology</option> " +
+                "<option value='3'>DiscoveryScreen</option> " +
+                "<option value='4'>ImmunoScreen</option> " +
+                "<option value='5'>ProfilingScreen</option> " +
+                "<option value='6'>PharmaScreen</option> " +
+                "<option value='7'>CustomScreen</option> " +
             "  </select> <br />";
                 }
-
             }
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
