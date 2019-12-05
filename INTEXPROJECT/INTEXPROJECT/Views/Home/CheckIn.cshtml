@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check In</title>
+
+    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Checked In!</h1>
+        <p class="lead"><strong>Test Tube #589345LT2 has been successfully checked in.</strong> </p>
+        <hr>
+        <p class="lead">
+            <input type="button" value="Undo" class="btn btn-primary btn-lg" style="padding: 15px 32px; font-size: 30px;" onclick="location.href='@Url.Action("CheckOut", "Home")'" />
+
+        </p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

@@ -44,5 +44,17 @@ namespace INTEXPROJECT.Controllers
         {
             return View();
         }
+
+        public ActionResult CheckIn()
+        {
+
+            return View();
+        }
+
+        public ActionResult CheckOut()
+        {
+
+            return View();
+        }
     }
 }
