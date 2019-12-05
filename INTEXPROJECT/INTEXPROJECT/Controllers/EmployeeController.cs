@@ -14,5 +14,10 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Title = "Northwest Labs";
             return View();
         }
+
+        public ActionResult Mangement()
+        {
+            return View();
+        }
     }
 }
