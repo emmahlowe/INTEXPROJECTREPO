@@ -1268,7 +1268,7 @@ namespace INTEXPROJECT.Controllers
                 OrderQuote = Decimal.Add(OrderQuote, (6.40m * compWeight5));
             }
 
-            ViewBag.Quote = '$' + Math.Round(OrderQuote, 2);
+            ViewBag.Quote = Math.Round(OrderQuote, 2);
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
