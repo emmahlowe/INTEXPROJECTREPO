@@ -5,8 +5,7 @@
 
 <h2>New Order</h2>
 
-@using (Html.BeginForm()) 
-{
+
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
@@ -24,51 +23,25 @@
 
     @*Form data*@
     <form method="POST" action="AddAssay">
+        <h5> Compound 1 </h5>
+        <label for="compName1">Compound Name</label>
+        <input name="compName1" value="text" /><br />
+        <br />
 
-        <label for="txtName">Compound</label>
-        @*@Html.DropDownList("test", new SelectList(ViewBag.Compounds, "Compound_ID", "Name"))*@
-        
-        @Html.TextBox("txtName", null, new { @class = "form-control" })
-        <input type="submit" value="Submit" />
+        <label for="compWeight1">Compound Weight</label>
+        <input name="compWeight1" value="text" /><br />
+        <br />
+
+        <label for="assayTest1">Assay Test</label>
+        <input name="assayTest1" value="text" /><br />
+
+        @Html.Raw(ViewBag.addAssay)<br />
+        @Html.ActionLink("Add another assay to this compound", "AddAssay", new { @class = "col-md-10" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Place Order" class="btn btn-default" />
+            </div>
+        </div>
 
     </form>
-< h5 > Compound 1 </ h5 >
-< div class="form-group">
-@Html.LabelFor(model => model.Compound_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-<div class="col-md-10">
-@Html.DropDownListFor(model => model.Compound_ID, new SelectList(ViewBag.Compounds, "Compound_ID", "Name"))
-@Html.ValidationMessageFor(model => model.Compound_ID)
-</div>
-</div>
-
-<div class="form-group">
-@Html.LabelFor(model => model.Client_Weight, htmlAttributes: new { @class = "control-label col-md-2" })
-<div class="col-md-10">
-@Html.EditorFor(model => model.Client_Weight)
-@Html.ValidationMessageFor(model => model.Client_Weight)
-</div>
-</div>
-
-<div class="form-group">
-@Html.LabelFor(model => model.Assay_Desc_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-<div class="col-md-10">
-@Html.DropDownListFor(model => model.Assay_Desc_ID, new SelectList(ViewBag.Assays, "Assay_Description_ID", "Description"))
-@Html.ValidationMessageFor(model => model.Assay_Desc_ID)
-</div>
-</div>
-
-@Html.ActionLink("Add another assay to this compound", "AddAssay", new { @class = "col-md-10" } )
-
-@*<input type="button" value="Add assay on this compound" class="col-md-3" />*@
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Place Order" class="btn btn-default" />
-        </div>
-    </div>
-
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

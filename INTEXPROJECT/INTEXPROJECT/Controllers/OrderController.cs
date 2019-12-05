@@ -52,7 +52,7 @@ namespace INTEXPROJECT.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(string txtName)
+        public ActionResult Create(string compName1, string compWeight1, string assayTest1)
         {
             //get number of assays per compound
             //get number of compounds
@@ -66,17 +66,38 @@ namespace INTEXPROJECT.Controllers
             ViewBag.Priorities = lstPriorities;
             return View();
         }
+        public static int numAssays = 0;
+        public static int numCompounds;
 
         public ActionResult AddAssay()
         {
+            numAssays += 1;
+            for (int iCount = 0; iCount < numAssays; iCount++)
+            {
+                ViewBag.addAssay += "<h5> Compound " + (iCount + 2) + " </h5> " +
+            "<label for= 'compName" + (iCount + 2) + "'>Compound Name</label> " +
+            "<input type='text' name='compName" +  (iCount + 2) + "' /> " +
+             "<br />" +
+
+             "<label for= 'compWeight" + (iCount + 2) + "'>Compound Weight</label> " +
+             "<input type='text' name='compWeight" + (iCount + 2) + "' /> " +
+             "<br />" +
+
+            "<label for= 'assayTest" + (iCount + 2) + "'>Assay Test</label> " +
+             "<input type='text' name='assayTest" + (iCount + 2) + "' /> ";
+             
+            }
+
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
             return View("Create");
         }
+
         [HttpPost]
-        public ActionResult AddAssay(string txtName)
+        public ActionResult AddAssay(string compName1, string compWeight1, string assayTest1, string compName2, string compWeight2, string assayTest2, string compName3, string compWeight3, string assayTest3, string compName4, string compWeight4, string assayTest4, string compName5, string compWeight5, string assayTest5)
         {
+            
             ViewBag.Compounds = lstCompounds;
             ViewBag.Assays = lstAssays;
             ViewBag.Priorities = lstPriorities;
