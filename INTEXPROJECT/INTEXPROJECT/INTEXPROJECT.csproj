@@ -213,9 +213,16 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\dashboard.css" />
+    <Content Include="css\myStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\adult-biology-chemical-chemist-356040.jpg" />
+    <Content Include="Images\laboratory-test-tubes-2280549 %281%29.jpg" />
+    <Content Include="Images\person-holding-glass-flasks-3082451.jpg" />
+    <Content Include="Images\person-holding-laboratory-flask-2280571 %281%29.jpg" />
+    <Content Include="Images\person-in-white-hand-gloves-writing-on-white-paper-207601.jpg" />
+    <Content Include="Images\two-test-tubes-954585.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
