@@ -218,6 +218,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\adult-biology-chemical-chemist-356040.jpg" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\laboratory-test-tubes-2280549 %281%29.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\person-holding-glass-flasks-3082451.jpg" />
