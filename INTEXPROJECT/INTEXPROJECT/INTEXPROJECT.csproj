@@ -334,7 +334,9 @@
     <Content Include="Views\Home\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Sample Report Summary.pdf" />
     <None Include="Properties\PublishProfiles\nwestlabs - Web Deploy.pubxml" />
+    <Content Include="Views\Order\OrderComplete.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

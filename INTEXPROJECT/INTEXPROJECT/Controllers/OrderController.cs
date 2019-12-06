@@ -47,12 +47,15 @@ namespace INTEXPROJECT.Controllers
         {
             return View();
         }
+        public ActionResult OrderComplete()
+        {
+            return View();
+        }
 
         public ActionResult OrderTesting()
         {
             return View();
         }
-
         public ActionResult Create()
         {
             ViewBag.Compounds = lstCompounds;
@@ -69,15 +72,6 @@ namespace INTEXPROJECT.Controllers
             return View("CreateQuote");
         }
 
-        //[HttpPost]
-        //public ActionResult Create(string compName1, string compWeight1, string assayTest1)
-        //{
-
-        //    ViewBag.Compounds = lstCompounds;
-        //    ViewBag.Assays = lstAssays;
-        //    ViewBag.Priorities = lstPriorities;
-        //    return View();
-        //}
         public static int numCompounds = 0;
 
         public ActionResult thankYou()
@@ -95,7 +89,7 @@ namespace INTEXPROJECT.Controllers
         }
 
         public ActionResult AddCompound()
-        {
+        { //dynamically loads html into view bag when "add another compound to my order" is clicked
             numCompounds += 1;
             for (int iCount = 0; iCount < numCompounds; iCount++)
             {
@@ -147,23 +141,14 @@ namespace INTEXPROJECT.Controllers
             return View("Create");
         }
 
+
+        //this method is for the Quote, the method below is for Order
         [HttpPost]
         public ActionResult getQuote(string priority, string compName1, decimal compWeight1, string compName2, string compName3, string compName4, string compName5, string assayTest1_1, string assayTest1_2, string assayTest1_3, string assayTest1_4, string assayTest1_5, string assayTest1_6, string assayTest2_1, string assayTest2_2, string assayTest2_3, string assayTest2_4, string assayTest2_5, string assayTest2_6, string assayTest3_1, string assayTest3_2, string assayTest3_3, string assayTest3_4, string assayTest3_5, string assayTest3_6, string assayTest4_1, string assayTest4_2, string assayTest4_3, string assayTest4_4, string assayTest4_5, string assayTest4_6, string assayTest5_1, string assayTest5_2, string assayTest5_3, string assayTest5_4, string assayTest5_5, string assayTest5_6, decimal compWeight2 = 0, decimal compWeight3 = 0, decimal compWeight4 = 0, decimal compWeight5 = 0)
         {
-            //calculate quote
-            //create work order object
-            //create assay objects
-            //create compound objects
-
-            //get number of assays per compound
-            //get number of compounds
-            //get what compounds and what assays are needed
-
-            //create work order record
-            //create compound record(s)
-            //create assay record(s)
             decimal OrderQuote;
-            //adds priority on
+            
+            //adds priority on to order total
             if (priority == "1")
             {
                 OrderQuote = 0m;
@@ -177,7 +162,7 @@ namespace INTEXPROJECT.Controllers
                 OrderQuote = 1000m;
             }
 
-            //adds comp1 assaytest1 cost on
+            //adds comp1 assaytest1 cost on to order total
             if (assayTest1_1 == "Biochemical Pharmacology")
             {
                 OrderQuote = Decimal.Add(OrderQuote, 33.7m);
