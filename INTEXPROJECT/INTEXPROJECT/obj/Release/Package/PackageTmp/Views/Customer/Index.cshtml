@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Customers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -41,9 +41,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Zip)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Discount)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -79,9 +79,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Zip)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Discount)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Customer_ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.Customer_ID }) |
