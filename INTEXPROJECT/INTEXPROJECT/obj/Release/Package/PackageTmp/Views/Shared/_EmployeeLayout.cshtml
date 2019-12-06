@@ -48,7 +48,7 @@
                 <ul class="nav nav-sidebar">
                     <li id="1" onclick="activate1()" onmouseover="activate1()" onmouseout="deactivate()" class="active">@Html.ActionLink("Active Orders", "Index", "Employee", null, null)</li>
                     <li id="2" onclick="activate2()" onmouseover="activate2()" onmouseout="deactivate()">@Html.ActionLink("Management Metrics", "Mangement", "Employee", null, null)</li> 
-                    <li id="3" onclick="activate3()" onmouseover="activate3()" onmouseout="deactivate()"><a href="#">Reports</a></li>
+                    <li id="3" onclick="activate3()" onmouseover="activate3()" onmouseout="deactivate()">@Html.ActionLink("View All Customers", "Index", "Customer", null, null)</li>
                     <li id="4" onclick="activate4()" onmouseover="activate4()" onmouseout="deactivate()"><a href="#">Proxy for Customer</a></li>
                     <li id="5" onclick="activate5()" onmouseover="activate5()" onmouseout="deactivate()"><a href="#">Export</a></li>
                 </ul>
